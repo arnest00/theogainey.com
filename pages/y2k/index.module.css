@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Nokia Cellphone FC';
+  src: url('/fonts/NokiaCellphoneFC.ttf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.y2k {
+  font-family: 'Nokia Cellphone FC', sans-serif;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  background-color: #78a47f;
+  color: #39553e;
+  height: 100vh;
+  width: 100vw;
+}
