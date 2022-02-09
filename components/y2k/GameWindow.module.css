@@ -1,0 +1,15 @@
+.game-container {
+  margin: 16px 0;
+  text-align: center;
+}
+
+.game-title {
+  font-size: 24px;
+}
+
+.game-window {
+  width: 192px;
+  height: 192px;
+  border: 3px solid #39553e;
+  margin: 0 auto;
+}

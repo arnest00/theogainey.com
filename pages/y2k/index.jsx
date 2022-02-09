@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import CurrentTime from '../../components/y2k/CurrentTime';
-import DigitalPet from '../../components/y2k/DigitalPet';
+import GameEngine from '../../components/y2k/GameEngine';
 
 import styles from './index.module.css';
 
@@ -61,21 +61,23 @@ const HomePageY2K = () => {
       <main>
         <section className={`${styles['section']}`}>
           <Link href="/y2k/projects/">
-            <a className={`${styles['anchor']} ${styles['text--subheader']}`}>Projects <span aria-hidden={true}>-&gt;</span></a>
+            <a className={styles['anchor']}>
+              <h2 className={styles['text--subheader']}>Projects <span aria-hidden={true}>-&gt;</span></h2>
+            </a>
           </Link>
           <p>See what I have built</p>
         </section>
 
         <section className={`${styles['section']}`}>
           <Link href="/y2k/helpful-links">
-            <a className={`${styles['anchor']} ${styles['text--subheader']}`}>Helpful Links <span aria-hidden={true}>-&gt;</span></a>
+            <a className={styles['anchor']}>
+              <h2 className={styles['text--subheader']}>Helpful Links <span aria-hidden={true}>-&gt;</span></h2>
+            </a>
           </Link>
           <p>Learning resources</p>
         </section>
 
-        <section className={`${styles['section']} ${styles['section--centered-text']}`}>
-          <DigitalPet />
-        </section>
+        <GameEngine />
       </main>
     </div>
   );
