@@ -1,13 +1,17 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import AnimationToggle from '../../components/y2k/AnimationToggle';
 import CurrentTime from '../../components/y2k/CurrentTime';
 import GameEngine from '../../components/y2k/GameEngine';
 
 import styles from './index.module.css';
 
 const HomePageY2K = () => {
+  const [ animationsEnabled, setAnimationsEnabled ] = useState(false);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,16 +20,24 @@ const HomePageY2K = () => {
 
       <header>
         <div className={`${styles['section--flex-row']} ${styles['section--flex-space-between']}`}>
-          <div>
-            <Link href="https://github.com/theogainey">
-              <a className={`${styles['anchor']} ${styles['text--margin-right']}`}>GitHub</a>
-            </Link>
-            <Link href="https://twitter.com/gaineytheo">
-              <a className={`${styles['anchor']}`}>Twitter</a>
-            </Link>
-          </div>
-          <CurrentTime />
+          <Image
+            src="/y2k/message-sprite.png"
+            height={32}
+            width={32}
+            className={styles.sprite}
+            alt={'Pixel art of a text message notification'}
+          />
+
+          <AnimationToggle
+            animationsEnabled={animationsEnabled}
+            setAnimationsEnabled={setAnimationsEnabled}
+          />
+
+          <CurrentTime
+            animationsEnabled={animationsEnabled}
+          />
         </div>
+
         <div className={`${styles['section']} ${styles['section--flex-row']} ${styles['section--flex-space-between']} ${styles['section--centered-text']}`}>
           <Image
             src="/y2k/signal-sprite.png"
@@ -44,17 +56,34 @@ const HomePageY2K = () => {
           />
         </div>
         <div className={`${styles['section']} ${styles['section--flex-row']} ${styles['section--flex-centered']}`}>
-          <Image
-            src="/y2k/profile-sprite.gif"
-            height={144}
-            width={144}
-            className={styles.sprite}
-            alt={'Pixel art of Theo Gainey'}
-          />
+          {animationsEnabled ?
+            <Image
+              src="/y2k/profile-sprite.gif"
+              height={144}
+              width={144}
+              className={styles.sprite}
+              alt={'Pixel art of Theo Gainey - animated'}
+            />
+            :
+            <Image
+              src="/y2k/profile-sprite-static.gif"
+              height={144}
+              width={144}
+              className={styles.sprite}
+              alt={'Pixel art of Theo Gainey'}
+            />
+          }
         </div>
+
         <div className={`${styles['section']} ${styles['section--centered-text']}`}>
-            <p>Full Stack Developer Apprentice</p>
-            <p>Sparkbox, Jan 2022 to present</p>
+          <p>Full Stack Developer Apprentice</p>
+          <p>Sparkbox, Jan 2022 to present</p>
+          <Link href="https://github.com/theogainey">
+            <a className={`${styles['anchor']} ${styles['text--margin-right']}`}>GitHub <span aria-hidden={true}>-&gt;</span></a>
+          </Link>
+          <Link href="https://twitter.com/gaineytheo">
+            <a className={`${styles['anchor']}`}>Twitter <span aria-hidden={true}>-&gt;</span></a>
+          </Link>
         </div>
       </header>
 
