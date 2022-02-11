@@ -1,15 +1,37 @@
-.game-container {
+.game {
   margin: 16px 0;
   text-align: center;
 }
 
-.game-title {
+.game__title {
   font-size: 24px;
 }
 
-.game-window {
-  width: 192px;
-  height: 192px;
-  border: 3px solid #39553e;
+.game__window {
+  width: 336px;
+  border: 3px solid var(--color-dark);
   margin: 0 auto;
+}
+
+.game__stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.game__sprite {
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.game__actions {  
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 16px;
+}
+
+.game__options {
+  margin: 8px 0;
 }

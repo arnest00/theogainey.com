@@ -106,7 +106,9 @@ const HomePageY2K = () => {
           <p>Learning resources</p>
         </section>
 
-        <GameEngine />
+        <GameEngine
+          animationsEnabled={animationsEnabled}
+        />
       </main>
     </div>
   );

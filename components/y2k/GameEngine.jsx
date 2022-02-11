@@ -1,48 +1,62 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import GameWindow from './GameWindow';
 
-const GameEngine = () => {
-  const [saveState, setSaveState] = useState(
-    {
-      name: 'Osmond',
-      hunger: 1,
-      trust: 2
-    }
-  );
+const GameEngine = ({ animationsEnabled }) => {
   const MIN_HUNGER = 0;
   const MAX_TRUST = 5;
+  const [saveState, setSaveState] = useState(null);
+
+  useEffect(() => {
+    let retrievedSave = null;
+    if (window) retrievedSave = JSON.parse(localStorage.getItem('pet'));
+
+    setSaveState(retrievedSave);
+  }, []);
 
   const initializePet = () => {
-    // Create a pet, if there is no save data in localStorage
+    localStorage.setItem('pet', JSON.stringify({ name: 'Who Dey', hunger: 0, trust: 0 }));
+    setSaveState(JSON.parse(localStorage.getItem('pet')));
+  };
+
+  const savePet = (saveData) => {
+    localStorage.setItem('pet', JSON.stringify(saveData));
+    setSaveState(saveData);
   };
 
   const feedPet = () => {
-    const newSaveState = { ...saveState };
-    let newValue = newSaveState.hunger - 1;
+    const newSaveData = { ...saveState };
+    let newValue = newSaveData.hunger - 1;
 
     if (newValue < MIN_HUNGER) newValue = MIN_HUNGER;
-    newSaveState.hunger = newValue;
+    newSaveData.hunger = newValue;
 
-    setSaveState(newSaveState);
+    savePet(newSaveData);
   };
   
   const playWithPet = () => {
-    const newSaveState = { ...saveState };
-    let newValue = (parseFloat(newSaveState.trust) + 0.5).toFixed(1);
+    const newSaveData = { ...saveState };
+    let newValue = (parseFloat(newSaveData.trust) + 0.5).toFixed(1);
   
     if (newValue > MAX_TRUST) newValue = MAX_TRUST;
-    newSaveState.trust = newValue;
+    newSaveData.trust = newValue;
   
-    setSaveState(newSaveState);
+    setSaveState(newSaveData);
   };
+
+  const deletePet = () => {
+    localStorage.removeItem('pet');
+    setSaveState(null);
+  }
 
   return (
     <GameWindow
+      animationsEnabled={animationsEnabled}
       saveState={saveState}
       initializePet={initializePet}
       feedPet={feedPet}
       playWithPet={playWithPet}
+      deletePet={deletePet}
     />
   );
 }
