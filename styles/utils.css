@@ -1,0 +1,31 @@
+.margin-y-8px {
+  margin: 8px 0;
+}
+
+.margin-r-8px {
+  margin-right: 8px;
+}
+
+.h1 {
+  font-size: 32px;
+}
+
+.h2 {
+  font-size: 24px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-space-bewteen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-align-center {
+  text-align: center;
+}

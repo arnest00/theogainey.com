@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-light: #78a47f;
+  --color-dark: #39553e;
+}
+
 .notion{
   @apply w-full text-left
 }

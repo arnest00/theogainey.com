@@ -7,8 +7,6 @@
 }
 
 .container {
-  --color-light: #78a47f;
-  --color-dark: #39553e;
   font-family: 'Nokia Cellphone FC', sans-serif;
   font-smooth: never;
   -webkit-font-smoothing: none;
@@ -16,46 +14,12 @@
   background-color: var(--color-light);
   padding: 8px;
   color: var(--color-dark);
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   box-shadow: inset 0 0 8px black;
 }
 
-.section {
-  margin: 8px 0;
-}
-
-.section--flex-row {
-  display: flex;
-}
-
-.section--flex-space-between {
-  justify-content: space-between;
-  align-items: center;
-}
-
-.section--flex-centered {
-  justify-content: center;
-  align-items: center;
-}
-
-.section--centered-text {
-  text-align: center;
-}
-
-.text--header {
-  font-size: 32px;
-}
-
-.text--subheader {
-  font-size: 24px;
-}
-
-.text--margin-right {
-  margin-right: 8px;
-}
-
-.anchor {
+.link {
   text-decoration: underline;
 }
 
