@@ -24,7 +24,7 @@ const HomePageY2K = () => {
             src="/y2k/message-sprite.png"
             height={32}
             width={32}
-            className={styles.sprite}
+            className="pixel-art"
             alt={'Pixel art of a text message notification'}
           />
           <AnimationToggle
@@ -41,7 +41,7 @@ const HomePageY2K = () => {
             src="/y2k/signal-sprite.png"
             height={96}
             width={32}
-            className={styles.sprite}
+            className="pixel-art"
             alt={'Pixel art of a signal icon with a strong connection'}
           />
           <h1 className={`h1`}>Theo Gainey</h1>
@@ -49,7 +49,7 @@ const HomePageY2K = () => {
             src="/y2k/battery-sprite.png"
             height={96}
             width={32}
-            className={styles.sprite}
+            className="pixel-art"
             alt={'Pixel art of a battery icon with full power'}
           />
         </div>
@@ -60,7 +60,7 @@ const HomePageY2K = () => {
               src="/y2k/profile-sprite.gif"
               height={144}
               width={144}
-              className={styles.sprite}
+              className="pixel-art"
               alt={'Pixel art of Theo Gainey - animated'}
             />
             :
@@ -68,7 +68,7 @@ const HomePageY2K = () => {
               src="/y2k/profile-sprite-static.gif"
               height={144}
               width={144}
-              className={styles.sprite}
+              className="pixel-art"
               alt={'Pixel art of Theo Gainey'}
             />
           }

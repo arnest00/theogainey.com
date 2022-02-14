@@ -1,10 +1,5 @@
 .game {
   margin: 16px 0;
-  text-align: center;
-}
-
-.game__title {
-  font-size: 24px;
 }
 
 .game__window {
@@ -19,11 +14,13 @@
   padding: 8px 16px;
 }
 
-.game__sprite {
+.game__pet {
   display: block;
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
+}
+
+.game__egg-button {
+  height: 120px;
+  width: 120px;
 }
 
 .game__actions {  
@@ -34,4 +31,15 @@
 
 .game__options {
   margin: 8px 0;
+}
+
+.game__button {
+  border: 3px solid var(--color-dark);
+  padding: 8px;
+}
+
+.game__button:active {
+  border-color: var(--color-light);
+  background-color: var(--color-dark);
+  color: var(--color-light);
 }

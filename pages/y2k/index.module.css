@@ -22,9 +22,3 @@
 .link {
   text-decoration: underline;
 }
-
-.sprite {
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}

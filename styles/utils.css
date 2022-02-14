@@ -29,3 +29,9 @@
 .text-align-center {
   text-align: center;
 }
+
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
