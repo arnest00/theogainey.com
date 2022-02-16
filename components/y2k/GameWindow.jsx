@@ -7,6 +7,7 @@ const GameWindow = ({
   animationsEnabled,
   saveState,
   initializePet,
+  namePet,
   feedPet,
   playWithPet,
   deletePet
@@ -14,7 +15,7 @@ const GameWindow = ({
   return (
     <section className={`${styles['game']} text-align-center`}>
       <h2 className={`h2`}>
-        { saveState === null ?
+        { saveState === null || Object.keys(saveState).length === 2 ?
           'Theogotchi'
           :
           saveState.name
@@ -22,10 +23,12 @@ const GameWindow = ({
       </h2>
 
       <div className={styles['game__window']}>
-        {saveState === null ?
+        {saveState === null || Object.keys(saveState).length === 2 ?
           <NewGameView
             animationsEnabled={animationsEnabled}
+            saveState={saveState}
             initializePet={initializePet}
+            namePet={namePet}
           />
           :
           <OngoingGameView
