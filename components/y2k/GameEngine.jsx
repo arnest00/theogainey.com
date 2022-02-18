@@ -4,6 +4,8 @@ import GameWindow from './GameWindow';
 
 const GameEngine = ({ animationsEnabled }) => {
   const MIN_HUNGER = 0;
+  const MAX_HUNGER = 3;
+  const MIN_TRUST = 0;
   const MAX_TRUST = 5;
   const [ saveState, setSaveState ] = useState(null);
 
@@ -15,7 +17,7 @@ const GameEngine = ({ animationsEnabled }) => {
   }, []);
 
   const initializePet = () => {
-    localStorage.setItem('pet', JSON.stringify({ hunger: 1, trust: 0 }));
+    localStorage.setItem('pet', JSON.stringify({ hunger: 1, trust: 0, days: 0 }));
     setSaveState(JSON.parse(localStorage.getItem('pet')));
   };
 
@@ -51,10 +53,20 @@ const GameEngine = ({ animationsEnabled }) => {
     setSaveState(newSaveData);
   };
 
+  const updatePet = () => {
+    const newSaveData = { ...saveState };
+
+    newSaveData.days = newSaveData.days + 1;
+    if (newSaveData.days % 3 === 0) newSaveData.trust = Math.max(newSaveData.trust - 0.5, MIN_TRUST);
+    newSaveData.hunger = Math.min(newSaveData.hunger + 1, MAX_HUNGER);
+
+    setSaveState(newSaveData);
+  };
+
   const deletePet = () => {
     localStorage.removeItem('pet');
     setSaveState(null);
-  }
+  };
 
   return (
     <GameWindow
@@ -64,6 +76,7 @@ const GameEngine = ({ animationsEnabled }) => {
       namePet={namePet}
       feedPet={feedPet}
       playWithPet={playWithPet}
+      updatePet={updatePet}
       deletePet={deletePet}
     />
   );
